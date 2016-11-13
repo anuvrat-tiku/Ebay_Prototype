@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" ng-app="HomePageApp">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <style>
+
+        #locate_search_bars {
+            position: absolute;
+            top: 170px;
+            right: 250px;
+        }
+
+        #sell_text_large {
+            position: relative;
+            font-family: "Helvetica Neue","Segoe UI",Helvetica,Arial,sans-serif;
+            font-size: 2.75rem;
+            color: #333;
+            font-weight: lighter;
+            text-align: left;
+            padding-bottom: 1rem;
+        }
+
+        #sell_text {
+            position: relative;
+            font-family: "Helvetica Neue","Segoe UI",Helvetica,Arial,sans-serif;
+            font-size: 1.75rem;
+            color: #333;
+            font-weight: lighter;
+            text-align: left;
+            padding-bottom: 1rem;
+        }
+
+        #sell_text_small {
+            position: relative;
+            font-family: "Helvetica Neue","Segoe UI",Helvetica,Arial,sans-serif;
+            font-size: 1.45rem;
+            color: #333;
+            font-weight: lighter;
+            text-align: left;
+            padding-bottom: 1rem;
+        }
+
+        #top_navbar3 {
+            color: #555;
+            font-size: 12px;
+            padding-top: 12px;
+            padding-bottom: 10px;
+            border-bottom: solid 1px transparent;
+            position: relative;
+        }
+
+        #top_navbar2_last_element {
+            font-size: 11px;
+            white-space: nowrap;
+            color: #666;
+        }
+
+        .top_links {
+            color: black;
+            font-family: "Arial";
+        }
+
+        #top_navbar2 {
+            background: whitesmoke;
+            color: black;
+            font-family: "Arial";
+            border: none;
+        }
+
+        #eye {
+            position: absolute;
+            right: 50px;
+            top: 7px;
+        }
+
+        .input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px outset #ccc;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            box-sizing: initial;
+            font-size: small;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Add angular script here if any -->
+    <title>
+        Ebay
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/angularjs/homescript.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;">
+<div class="container">
+
+    <!-- To navbar -->
+    <div id="top_navbar" class="navbar navbar-fixed-top" ng-controller="Row1Controller">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="/images/favicon.ico">
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp
+        <a href="">Help</a>
+
+    </div>
+
+    <img src="/images/sell_ebay.jpg" width="1263.33" height="547">
+
+    <!-- Div element having all the selling UI items. To be placed on top of the image. -->
+    <div id="locate_search_bars" data-ng-controller="SellController">
+        <span id="sell_text_large">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Over 160 million shoppers <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            want to buy your stuff. <br /><br />
+        </span>
+        <span id="sell_text">What do you want to sell?</span>
+        <br />
+        <form name = "sellform">
+        <input id="sell_text_bar" name="sell_text_bar" type="text" placeholder="Give your listing a descriptive title..."
+               size="70" style="height: 60px" data-ng-model="sell_item_text" />
+        <button class="btn btn-primary" style="height: 60px" data-ng-click = addToSellItems()>
+            &nbsp;&nbsp;<b>Sell it</b>&nbsp;&nbsp;
+        </button>
+        <button style="border: none; font-family: Helvetica Neue; color: blue; font-size: large">
+            Cancel
+        </button>
+        </form>
+        <br />
+        <span id="sell_text_small">Example: Men's blue adidas glide running shoes size 11</span>
+    </div>
+
+</div>
+</body>
+
+</html>

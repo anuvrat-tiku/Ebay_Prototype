@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" ng-app="HomePageApp">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <style>
+        #horizontal_line {
+            border-color: lightgray;
+        }
+
+        #top_navbar3 {
+            color: #555;
+            font-size: 12px;
+            padding-top: 12px;
+            padding-bottom: 10px;
+            border-bottom: solid 1px transparent;
+            position: relative;
+        }
+
+        #top_navbar2_last_element {
+            font-size: 11px;
+            white-space: nowrap;
+            color: #666;
+        }
+
+        #top_links {
+            color: black;
+            font-family: "Arial";
+        }
+
+        #top_navbar2 {
+            background: whitesmoke;
+            color: black;
+            font-family: "Arial";
+            border: none;
+        }
+
+        #eye {
+            position: absolute;
+            right: 50px;
+            top: 7px;
+        }
+
+        .input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px outset #ccc;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            box-sizing: initial;
+            font-size: small;
+        }
+
+        .error-message {
+            color: #dd1e31;
+            font-family: verdana;
+            font-size: x-small;
+            font-size-adjust: none;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            padding-top: 2px;
+            text-decoration: none;
+        }
+
+        .ng-invalid.ng-dirty {
+            border-color: #FA787E;
+        }
+
+        .ng-touched.ng-invalid {
+            border-color: #FA787E;
+        }
+
+        .ng-touched.ng-pristine {
+            border-color: #FA787E;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Add angular script here if any -->
+    <title>
+        Ebay
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/angularjs/homescript.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;">
+<!-- Beginning of container Div element -->
+<div class="container">
+
+    <!-- Row 1 which has the Cart -->
+    <div id="top_navbar" class="navbar navbar-fixed-top" ng-controller="Row1Controller">
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hi <%= fname %>
+        |&nbsp;
+        &nbsp;<a id="top_links" href="">Daily Deals</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="">Gift Cards</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="" ng-click="ToSellerPage()">Sell</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="">Help and Contact</a>&nbsp;&nbsp;|
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://ir.ebaystatic.com/pictures/aw/mops/2016_Doodles/Halloween_small_doodle_150x30.jpg"
+             id="gh-hsi" height="25" width="120" alt="Show now" title="Show now">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="top_links" href="">My eBay</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-bell"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/cart">
+        <span class="glyphicon glyphicon-shopping-cart">
+            <span class="badge" style="color: #ffffff; background-color: #e69500; font-size: 10px"></span>
+        </span>
+        </a>
+
+    </div>
+
+    <!-- Row 2 which has the ebay image -->
+
+    <div class="navbar" id="top_navbar2" ng-controller="Row2Controller">
+        <img src="/images/favicon.ico" alt="ebay Logo" ng-click="ToHomePage()">
+
+        <div class = "btn-group">
+            <button id="top_navbar2" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop by<br />&nbsp;&nbsp;
+                category
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="">Action</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something else here</a></li>
+                <li><a href="">Separated link</a></li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="Search.." style="width: 550px; height: 40px" />
+
+        <!-- All Categories dropdown -->
+        <div class = "btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    style="height: 41px">
+                All categories&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-triangle-bottom">
+
+                </span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="">Action</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something else here</a></li>
+                <li><a href="">Separated link</a></li>
+            </ul>
+        </div>
+
+        <!-- Search button -->
+        <div class = "btn-group">
+            <button class="btn btn-primary" style="height: 40px">
+                &nbsp;&nbsp;<b>Search</b>&nbsp;&nbsp;
+            </button>
+        </div>
+
+        <!-- Advanced link -->
+        <a id="top_navbar2_last_element" href="">Advanced</a>
+    </div>
+
+    <!-- Image of the product -->
+    <div class="row" ng-controller="AddToCartController">
+        <div class="col-md-5">
+            <img src="<%= values[0].IMAGES %>" style="width:450px;height:500px" />
+        </div>
+        <div class="col-md-7">
+            Title : <%- values[0].TITLE %> <hr />
+            Item Condition: <%- values[0].ITEM_CONDITION %> <br />
+            Quantity: <input type="text" size="3" data-ng-model="order_quantity" /> <br />
+            <div class="row">
+                <br />
+                <div class="col-md-7">
+                    <div class="well">
+                        Price: <b>$<%- values[0].PRICE %></b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button style="height: 35px;" class="btn btn-primary" data-ng-click="AddToCart()" >
+                            <b>
+                                Buy it Now
+                            </b>
+                        </button>
+                        <br /><br />
+                        155 watching&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button style="height: 35px;" class="btn btn-primary" data-ng-click="AddToCart()" >
+                            <b>
+                                Add to cart
+                            </b>
+                        </button>
+
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="well" style="background: #fff">
+                        <b>Seller information</b>
+                        <h6 style="color: blue"><%- values[0].SELLER %>(2274 *) me</h6>
+                        100% Positive feedback<br />
+                        ...............................................<br />
+                        <span class="glyphicon glyphicon-plus" style="color: green"></span>
+                        <font style="color: green">Follow this seller</font> <br />
+                        Visit store: <font style="color: blue;">alldayzip<br />See other items</font>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <font size="2"><font color="#737373">Shipping: </font>
+
+                    e1.40 shipping| <a><font size="1" color="#737373"><u>See details</u></font></a></font>
+
+            </div>
+
+            <div class="row">
+                <font size="1" color="#737373">	&emsp;&emsp;&emsp;&emsp;&emsp;See details about international shipping here.</font>
+            </div>
+
+            <div class="row">
+                <font size="1" color="#737373"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Item location: Shanghai, China</font>
+            </div>
+
+            <div class="row ">
+                <font size="1" color="#737373">&emsp;&emsp;&emsp;Ships to: Americas, Europe, Asia, Australia <a><u><font size="1" color="#737373">See exclusions</font></u></a></font>
+
+            </div>
+
+            <div class="container ">
+
+                <font size="2"><font color="#737373">Delivery: </font>
+
+                    Estimated between <b><font color="orange">Wed. Oct. 5 and Sun. Oct. 10</font></b></font>
+
+            </div>
+
+            <div class="row ">
+                <font size="1" color="#737373">	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Please note the delivery estimate is <font color="orange"><b>greater than 5 business days.</b></font></font>
+            </div>
+
+            <div class="container">
+                <font size="2"><font color="#737373">Payments: </font>
+
+                    <img src="http://www.flybe.com/corporate/media/news/1406/paypal.png" style="width:70px;height:30px;"/><img src="http://www.libertyint.com/LibertyInternationalFinal/paymentoptions.center.png" style="width:150px;height:30px;"/>
+                </font>
+            </div>
+
+            <div class="row ">
+                <font size="1">	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Credit cards processed by PayPal</font>
+
+            </div>
+
+            <div class="row ">
+                &emsp;&emsp;<img src="http://marketingroadmap.com/img/sales/paypal-credit-logo.png" style="width:120px;height:20px;"/>
+            </div>
+
+            <div class="row ">
+                <font size="1">	&emsp;&emsp;&emsp;Get more time to pay. <a><font size="1" color="#737373"><u>Apply now</u></font></a> | <a><font size="1" color="#737373"><u>See Terms</u></font></a>
+                </font>
+            </div>
+
+            <div class="row ">
+                <font size="1">	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a><font size="1" color="#737373"><u>See Details</u></font></a>
+                </font>
+            </div>
+
+            <div class="container ">
+                <font size="2"><font color="#737373">Returns: </font>
+
+                    60 days money back or item exchange, buyer pays return shipping | <a><font size="1" color="#737373"><u>See Details</u></font></a></font>
+            </div>
+
+            <div class="container">
+                <font size="2" color="#737373">Guarantee: </font>
+
+                <img src="http://pics.ebaystatic.com/aw/pics/buy/mbg/landing/MBG-logo.png" style="width:120px;height:35px;"/> &emsp;&emsp;<b>|</b>&emsp;&emsp;<a><font size="1" color="#737373"><u>See Details</u></font></a>
+            </div>
+
+            <div class="row ">
+                <font size="1">	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get the item you ordered or get your money back.</font>
+            </div>
+
+            <div class="row ">
+                <font size="1">	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Covers your purchase price and original shipping.</font>
+            </div>
+
+
+        </div> <!-- col-md-6 -->
+
+    </div>
+
+</div>
+
+<!-- End of container div element -->
+
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" ng-app="HomePageApp">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <style>
+        #well {
+            color: transparent;
+        !important;
+            font-size: large;
+        }
+
+        #horizontal_line {
+            border-color: lightgray;
+        }
+
+        #top_navbar3 {
+            color: #555;
+            font-size: 12px;
+            padding-top: 12px;
+            padding-bottom: 10px;
+            border-bottom: solid 1px transparent;
+            position: relative;
+        }
+
+        #top_navbar2_last_element {
+            font-size: 11px;
+            white-space: nowrap;
+            color: #666;
+        }
+
+        #top_links {
+            color: black;
+            font-family: "Arial";
+        }
+
+        #top_navbar2 {
+            background: whitesmoke;
+            color: black;
+            font-family: "Arial";
+            border: none;
+        }
+
+        #eye {
+            position: absolute;
+            right: 50px;
+            top: 7px;
+        }
+
+        .input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px outset #ccc;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            box-sizing: initial;
+            font-size: small;
+        }
+
+        .error-message {
+            color: #dd1e31;
+            font-family: verdana;
+            font-size: x-small;
+            font-size-adjust: none;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            padding-top: 2px;
+            text-decoration: none;
+        }
+
+        .ng-invalid.ng-dirty {
+            border-color: #FA787E;
+        }
+
+        .ng-touched.ng-invalid {
+            border-color: #FA787E;
+        }
+
+        .ng-touched.ng-pristine {
+            border-color: #FA787E;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Add angular script here if any -->
+    <title>
+        Ebay
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/angularjs/homescript.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;">
+<!-- Beginning of container Div element -->
+<div class="container">
+
+    <!-- Row 1 which has the Cart -->
+    <div id="top_navbar" class="navbar navbar-fixed-top" ng-controller="Row1Controller">
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/summary">Hi <%= fname %>&nbsp;</a>
+        |&nbsp;
+        &nbsp;<a id="top_links" href="">Daily Deals</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="">Gift Cards</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="" ng-click="ToSellerPage()">Sell</a>&nbsp;&nbsp;|
+        &nbsp;<a id="top_links" href="/logout">Logout</a>&nbsp;&nbsp;|
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="http://ir.ebaystatic.com/pictures/aw/mops/2016_Doodles/Halloween_small_doodle_150x30.jpg"
+             id="gh-hsi" height="25" width="120" alt="Show now" title="Show now">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="top_links" href="">My eBay</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="glyphicon glyphicon-bell"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/cart">
+        <span class="glyphicon glyphicon-shopping-cart">
+            <span class="badge" style="color: #ffffff; background-color: #e69500; font-size: 10px"></span>
+        </span>
+        </a>
+
+    </div>
+
+    <!-- Row 2 which has the ebay image -->
+
+    <div class="navbar" id="top_navbar2" ng-controller="Row2Controller">
+        <img src="/images/favicon.ico" alt="ebay Logo" ng-click="ToHomePage()">
+
+        <div class = "btn-group">
+            <button id="top_navbar2" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop by<br />&nbsp;&nbsp;
+                category
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="">Action</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something else here</a></li>
+                <li><a href="">Separated link</a></li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="Search.." style="width: 550px; height: 40px" />
+
+        <!-- All Categories dropdown -->
+        <div class = "btn-group">
+            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    style="height: 41px">
+                All categories&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="">Action</a></li>
+                <li><a href="">Another action</a></li>
+                <li><a href="">Something else here</a></li>
+                <li><a href="">Separated link</a></li>
+            </ul>
+        </div>
+
+        <!-- Search button -->
+        <div class = "btn-group" ng-controller="AllProducts">
+            <button class="btn btn-primary" style="height: 40px" ng-click="ShowAllProducts()">
+                &nbsp;&nbsp;<b>Search</b>&nbsp;&nbsp;
+            </button>
+        </div>
+
+        <!-- Advanced link -->
+        <a id="top_navbar2_last_element" href="">Advanced</a>
+    </div>
+
+    <div id="top_navbar3" style="overflow: visible;" ng-controller="AllProducts">
+        <hr id="horizontal_line"/>
+        <a style="color: #555" href="http://www.ebay.com/feed">Following</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="rt" ng-click="ShowAllProducts()"><b><u>Today</u></b></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        |
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Electronics</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Fashion</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Books</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Watches</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Health and Beauty</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Music</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Business and Industrial</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Collectibles and Art</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Sporting Goods</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a style="color: #555" href="">Deals</a>
+        <hr id="horizontal_line"/>
+    </div>
+
+
+    <!-- Feeding images to the web page -->
+    <div class="row">
+        <div class="col-md-9">
+
+            <img src="/images/Ebay_homepage_1.PNG" height="400" width="700">
+        </div>
+
+        <div class="col-md-3">
+
+            <img src="/images/Ebay_homepage_2.jpg" height="200" width="300">
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/images/Ebay_homepage_4.jpg" width="600">
+        </div>
+        <div class="col-md-6">
+            <img src="/images/Ebay_homepage_3.webp" width="600">
+        </div>
+    </div>
+    <!-- End of container div element -->
+</div>
+</body>
+
+</html>

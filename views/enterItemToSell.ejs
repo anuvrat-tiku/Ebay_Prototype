@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" ng-app="HomePageApp">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <style>
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px outset #ccc;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            box-sizing: initial;
+            font-size: small;
+        }
+
+        #formWell {
+            background: #ffffff;
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <!-- Add angular script here if any -->
+    <title>
+        Ebay
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="/angularjs/homescript.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;">
+<div class="container">
+
+    <!-- To navbar -->
+    <div id="top_navbar" class="navbar navbar-fixed-top" ng-controller="Row1Controller">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <img src="/images/favicon.ico">
+
+    </div>
+    <br /><br />
+    <!-- Create a form to store and send new product values -->
+    <div class="col-md-12">
+        <div class="well" id="formWell">
+            <div ng-controller="AddProductController">
+                <form name="sell_form" data-ng-submit="addProduct()">
+                    <h2>Write a descriptive title</h2>
+                    Use words people would search for when looking for your item. <br /><br />
+                    <input type="text" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Title" data-ng-model="product_title" required maxlength="80" />
+                    <br /><hr />
+                    <h3>Product category</h3>
+                    <input type="text" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Category" data-ng-model="category" required maxlength="80" />
+                    <br /><hr />
+                    <h3>Quantity</h3>
+                    <input type="number" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Quantity" data-ng-model="quantity" required maxlength="80" />
+                    <br /><hr />
+                    <h3>Add item specifics</h3>
+                    <input type="radio" data-ng-model="condition" value="1" name="condition_type" />New
+                    <br /><br />
+                    <input type="radio" data-ng-model="condition" value="2" name="condition_type" />Used
+                    <br /><hr />
+                    <h3>Describe your Item</h3>
+                    <h4>Include any unique features or flaws.</h4>
+                    <textarea form="sell_form" name="Description" id="Desciption" cols="143" rows="5" data-ng-model="item_description"
+                              placeholder="The more details, the better!. A great item description helps the buyer get a clear idea of what you are selling.">
+                    </textarea>
+                    <hr />
+
+                    <!-- Opion between aution and Selling -->
+                    <h2>Choose a listing option</h2>
+                    <input type="radio" data-ng-model="sells" value="1" name="sell_type" ng-checked="sell_type()" />
+                    <h3>Auction</h3>Best when you're not sure how much your item could sell for. <br /><br />
+                    <div ng-show="auction_model">
+                        Starting price <br />
+                        <b>$</b><input type="text" data-ng-model="auction_amount" /> <br/><br/>
+                        Duration : 4 Days
+                    </div>
+                    <hr />
+
+
+                    <br />
+                    <input type="radio" data-ng-model="sells" value="2" name="sell_type" ng-checked="sell_type()" />
+                    <h3>Fixed price</h3>Go with this if you know exactly how much you want for your item.   <br /><br />
+                    <div ng-show="sell_model">
+                        Buy it now price <br />
+                        <b>$</b><input type="text"  data-ng-model="sell_amount" /> <br/><hr />
+                    </div>
+
+                    <h3> Enter Location of the product</h3>
+                    <input type="text" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Location" drequired maxlength="80" />
+                    <br /><hr />
+
+                    <input type="submit" style="height: 35px;" class="btn btn-primary btn-block" value="List it" /><br /><hr />
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

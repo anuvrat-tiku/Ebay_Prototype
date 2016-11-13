@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous">
+    </script>
+    <style>
+        #well {
+            background: #fff;
+            !important;
+            font-size: large;
+        }
+        
+        #eye {
+            position: absolute;
+            right: 50px;
+            top: 7px;
+        }
+        
+        .input[type=checkbox] {
+            transform: scale(1.5);
+        }
+        
+        .error-message {
+            color: #dd1e31;
+            font-family: verdana;
+            font-size: x-small;
+            font-size-adjust: none;
+            font-style: normal;
+            font-variant: normal;
+            font-weight: normal;
+            line-height: normal;
+            padding-top: 2px;
+            text-decoration: none;
+        }
+        
+        .ng-invalid.ng-dirty {
+            border-color: #FA787E;
+        }
+        
+        .ng-touched.ng-invalid {
+            border-color: #FA787E;
+        }
+        
+        .ng-touched.ng-pristine {
+            border-color: #FA787E;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="/angularjs/script.js"></script>
+    <title>
+        <%= title %>
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+
+<body ng-app="indexPage" style="background-color: whitesmoke">
+    <center>
+        <img src="/images/favicon.ico" alt="ebay Logo">
+    </center><br />
+
+    <div class="container">
+
+        <!-- Random:  ng-pattern for email ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" -->
+        <!-- 3 offset columns to get the well in the center -->
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+
+        <!-- Define the two tabs -->
+        <div class="col-md-6">
+            <div class="well" id="well" style="border-style: ridge;">
+                <ul class="nav nav-tabs nav-justified">
+                    <!-- Sign in toggle bar -->
+                    <li class="active">
+                        <a data-toggle="tab" href="#signin" style="font-size: 17px">
+                            <span class="glyphicon glyphicon-circle-arrow-right" style="color:	#C0C0C0; font-size: 25px">
+  								</span> Sign in
+                        </a>
+                    </li>
+                    <!-- Register toggle bar -->
+                    <li>
+                        <a data-toggle="tab" href="#regnewuser" style="font-size: 17px">
+                            <span class="glyphicon glyphicon-plus-sign" style="color:  #C0C0C0; font-size: 25px">
+    							</span> Register
+                        </a>
+                    </li>
+
+                </ul>
+
+
+
+                <!-- Toggle tab element, Sign In input fields active by default -->
+                <div id="my-tab-content" class="tab-content">
+
+                    <!-- Login existing user -->
+                    <div class="tab-pane fade in active" id="signin">
+                        <form name="login" ng-controller="LoginController" data-ng-submit="login_User()" novalidate>
+
+                            <!-- Incorrect Login glyphicon only to be displayed if either uid pr password is incorrect -->
+                            <div ng-show="loginError" style="color:red">
+                                <br /><span class="glyphicon glyphicon-exclamation-sign" style="color:red">
+									</span> Oops, thats not a match
+                            </div>
+
+                            <!-- Username field for Login -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="text" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Username" data-ng-model="user_email" required>
+                            </div>
+
+                            <!-- Password field for Login -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="password" style="font-size:12pt; height: 35px;" id="pwd" name="pwd" class="form-control input-lg" placeholder="Password" data-ng-model="pwd" required>
+                            </div>
+
+                            <!-- Sign In submit button for Login -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="submit" style="height: 35px;" class="btn btn-primary btn-block" value="Sign in">
+                                </input>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- End of Login div element -->
+
+                    <!-- Register new user -->
+                    <div class="tab-pane fade" id="regnewuser">
+                        <form name="registeruser" id="registeruser" ng-controller="RegisterUserController" data-ng-submit="register_User()" novalidate>
+
+                            <!-- Email for registering -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="email" name="email" id="email" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Email" data-ng-model="reg_email" required />
+                            </div>
+                            <div class="error-message" ng-show="registeruser.email.$touched && registeruser.email.$pristine">
+                                Please enter your email address.
+                            </div>
+
+                            <!-- Reenter email for registering -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="email" name="remail" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Reenter email" data-ng-model="reenter_email" required autocomplete="off" />
+                            </div>
+
+                            <div class="error-message" ng-show="registeruser.remail.$touched && registeruser.remail.$pristine">
+                                Looks like these email addresses don’t match.
+                            </div>
+
+                            <!-- Set a password for the account -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="password" id="password" name="password" style="height: 33px;" class="form-control input-lg" placeholder="Password" pattern=".{6,}" data-ng-model="reg_password" required autocomplete="off" />
+                                <!-- Button for viewing password -->
+                                <input type="checkbox" id="eye" onclick="if(password.type=='text')password.type='password'; else password.type='text';" />
+                            </div>
+                            <!-- Error Message for password if it is less than 6 digits -->
+                            <div class="error-message" ng-show="registeruser.password.$dirty && registeruser.password.$invalid">
+                                Please enter at least 6 characters.
+                            </div>
+                            <!-- Error Message for password if user does a pristine tab out -->
+                            <div class="error-message" ng-show="registeruser.password.$touched && registeruser.password.$pristine">
+                                Please enter your password.
+                            </div>
+
+
+                            <!-- Select firstname half the length of the well -->
+                            <div class="col-md-6 margin: 7px">
+                                <input type="text" class="form-control ng-pristine ng-untouched ng-valid" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="First name" data-ng-model="reg_firstname" required />
+                            </div>
+                            <!-- Select lastname half the length of the well -->
+                            <div class="col-md-6 margin: 7px">
+                                <input type="text" class="form-control ng-pristine ng-untouched ng-valid" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="Last name" data-ng-model="reg_lastname" required />
+                            </div>
+
+                            <!-- Mobile number for new registration -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="text" style="font-size:12pt; height: 35px;" class="form-control input-lg" placeholder="+1  Mobile phone" data-ng-model="reg_mobile" required />
+                            </div>
+
+                            <!-- Button to submit form -->
+                            <div class="col-md-12" style="margin: 7px;">
+                                <input type="submit" style="height: 35px;" class="btn btn-primary btn-block" value="Register">
+                                </input>
+                            </div>
+
+                            <!-- User agreement -->
+                            <div class="col-md-12 ">
+                                <small style="font-size: 12px; font-family: 'Helvetica neue',Helvetica,Arial,sans-serif; color:black ">
+									By <b>Registering</b>, you agree that you've read and accepted our <a title="link opens in new window " href="http://pages.ebay.com/help/policies/user-agreement.html " target="_blank
+                                    ">User Agreement</a>, you're at least 18 years old, and you consent to our <a href="http://pages.ebay.com/help/policies/privacy-policy.html " target="_blank ">Privacy Notice</a> and receiving marketing communications from us.
+								</small>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End of register new user div element -->
+
+
+                </div>
+                <!-- End of tab content class div element -->
+                <!-- br element added to set the height of the well till the end of the form. This is needed -->
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <h6>.
+                    </h6>
+            </div>
+            <!-- End of well element div -->
+        </div>
+        <!-- End of column md-6 element div -->
+
+
+
+        <!-- Offset bootstrap columns -->
+        <div class="col-md-1 "></div>
+        <div class="col-md-1 "></div>
+        <div class="col-md-1 "></div>
+
+
+
+        <!-- End of row div element -->
+    </div>
+    <!-- End of container div element -->
+</body>
+
+</html>
